@@ -167,6 +167,10 @@ void led_extraction(int mark[4][2], Mat& _mat_original, bool mark_flag[4]){
 			if (vertical_cnt >= 1 && diagonal_cnt1 >= 1) {
 				if (signextract(((mark_temp_r[j][0] - mark_temp_g[i][0])*(mark_temp_r[r_diagonal_1][1] - mark_temp_g[i][1]) - (mark_temp_r[j][1] - mark_temp_g[i][1])*(mark_temp_r[r_diagonal_1][0] - mark_temp_g[i][0]))) * signextract(((mark_temp_r[j][0] - mark_temp_g[i][0])*(mark_temp_r[r_vertical][1] - mark_temp_g[i][1]) - (mark_temp_r[j][1] - mark_temp_g[i][1])*(mark_temp_r[r_vertical][0] - mark_temp_g[i][0]))) > 0)
 				{
+					g1 = i;
+					r1 = r_vertical;
+					r2 = r_diagonal_1;
+					r3 = j;
 					mark[0][0] = mark_temp_g[i][0];
 					mark[0][1] = mark_temp_g[i][1];
 					mark[1][0] = mark_temp_r[r_vertical][0];
@@ -179,6 +183,10 @@ void led_extraction(int mark[4][2], Mat& _mat_original, bool mark_flag[4]){
 				}
 			}
 			else if (diagonal_cnt2 == 2) {
+				g1 = i;
+				r1 = r_diagonal_2[0];
+				r2 = j;
+				r3 = r_diagonal_2[1];
 				mark[0][0] = mark_temp_g[i][0];
 				mark[0][1] = mark_temp_g[i][1];
 				mark[1][0] = mark_temp_r[r_diagonal_2[0]][0];
